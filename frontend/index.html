@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Predictive Analytics Platform - Upload data and get ML predictions" />
+    <meta name="theme-color" content="#000000" />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Predictive Analytics Platform" />
+    <meta property="og:description" content="Upload data and get ML predictions with interactive visualizations" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <title>Predictive Analytics Platform</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="modulepreload" href="/src/main.jsx" />
+    
+    <!-- Base Tailwind styles -->
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-900">
+    <div id="root"></div>
+    
+    <!-- Error boundary fallback -->
+    <div id="error-boundary" style="display: none;">
+      <div style="padding: 20px; text-align: center;">
+        <h2>Something went wrong</h2>
+        <button onclick="window.location.reload()">Reload Page</button>
+      </div>
+    </div>
+    
+    <!-- Loading state -->
+    <div id="loading" style="display: none;">
+      <div style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      ">
+        Loading...
+      </div>
+    </div>
+    
+    <!-- Main entry point -->
+    <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Fallback for older browsers -->
+    <noscript>
+      <div style="padding: 20px; text-align: center;">
+        You need to enable JavaScript to run this app.
+      </div>
+    </noscript>
+  </body>
+</html>
